@@ -5,21 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Product.delete_all
-​   Product.create!(title: 'Bon gros porc',
-​     description:
-​       %{<p>
-​         <em>Responsive, Intuitive Interfaces with Ruby</em>
-​         The next step in the evolution of user interfaces is here.
-​         Chatbots let your users interact with your service in their
-​         own natural language. Use free and open source tools along
-​         with Ruby to build creative, useful, and unexpected interactions
-​         for users. Take advantage of the Lita framework’s step-by-step
-​         implementation strategy to simplify bot development and testing.
-​         From novices to experts, chatbots are an area in which everyone
-​         can participate. Exercise your creativity by creating chatbot
-​         skills for communicating, information, and fun.
-​         </p>},
-​     image_url: 'cochon.jpg',
-​     price: 20.00) 
+puts "Cleaning database..."
+Product.destroy_all
 
+puts "Creating products..."
+snes = { title: "snes", price: "120", description: "Amazing snes console" }
+megadrive =  { title: "megadrive", price: "150", description: "Amazing megadrive console"}
+
+[ snes, megadrive ].each do |attributes|
+  product = Product.create!(attributes)
+  puts "Created #{product.title}"
+end
+puts "Finished!"
