@@ -7,8 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 puts "Cleaning database..."
-Category.destroy_all
-Product.destroy_all
 
 PRODUCTS_COUNT = 100
 
